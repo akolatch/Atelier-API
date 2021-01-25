@@ -1,2 +1,2 @@
-# Q-A_API
+# QandA_API
 restfull API for the Q&amp;A service
