@@ -1,2 +1,3 @@
-# QandA_API
-restfull API for the Q&amp;A service
+# Q and A API
+
+restful API for the question and answers service of the Atelier API

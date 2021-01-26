@@ -1,0 +1,27 @@
+{
+  "name": "qanda_api",
+  "version": "1.0.0",
+  "description": "restful API for the question and answers service of the Atelier API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terramuse-tiramisu/QandA_API.git"
+  },
+  "author": "Aharon Kolatch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/terramuse-tiramisu/QandA_API/issues"
+  },
+  "homepage": "https://github.com/terramuse-tiramisu/QandA_API#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsdocs": "^1.0.0",
+    "mongoose": "^5.11.13",
+    "nodemon": "^2.0.7"
+  }
+}
