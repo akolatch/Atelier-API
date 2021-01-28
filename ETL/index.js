@@ -4,8 +4,15 @@ const {
   TransformAnswer,
   TransformPhoto,
 } = require('../db/NoSQLSchema');
-let count = 0;
+
+const formatTime = (d) => {
+  return `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+};
+
 const transformQId = async (amount) => {
+  console.log('started');
+  let tracking = 10000;
+  const start = new Date();
   for (let question_id = 1; question_id <= amount; question_id++) {
     // get the object _id for the     fist question
     try {
@@ -28,30 +35,27 @@ const transformQId = async (amount) => {
           helpfulness: answer.helpful,
           photos: photos,
         });
+      }
+      if (question_id === tracking) {
         console.log(
-          `${question_id} of ${amount} questions searched transformed ${
-            question_id + count
-          } of 12392946 answers transformed`
+          `${tracking} of ${amount} questions have had their answers transformed`
         );
-        count++;
+        tracking += 10000;
       }
     } catch (err) {
       console.log(err);
+      process.exit(1);
     }
   }
-  console.log('done', new Date());
+  const end = new Date();
+  console.log(
+    `transformation started at ${formatTime(
+      start
+    )} and finished at ${formatTime(end)}`
+  );
+  process.exit(0);
 };
 
-// const get = async () => {
-//   const data = await TransformAnswer.find({ question_id: 23 }, { _id: 0 });
-
-//   console.log('data', data);
-// };
-console.log(new Date());
-// transformQId(1000);
 transformQId(3521634);
-// get();
 
 // total questions 3521634
-// total photos 3717892
-// total answers 12392946
