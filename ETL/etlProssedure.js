@@ -20,6 +20,8 @@ ETL terminal commands/instructions
   db.transformAnswers.createIndex({"id":1})
   db.transformPhotos.createIndex({"id":1})
   db.transformPhotos.createIndex({"answer_id":1})
+  db.transformAnswers.aggregate([{$lookup: {from: transformPhotos}}])
+  db.questions.updateMany( {}, { $rename: { "body": "question_body", "date_written": "question_date", "helpful" : "question_helpfulness", "id": "question_id" } } )
 
 [5] In the terminal run the mongoose etl (this will take about 5 hours)
   node etl/index.js
