@@ -1,7 +1,7 @@
 const { Answer } = require('../db');
 
 module.exports = {
-  findAnswers: async ({ question_id, page = 0, count = 5 }) => {
+  find: async ({ question_id, page = 0, count = 5 }) => {
     return await Answer.aggregate()
       .match({ question_id })
       .sort({ id: 1 })
@@ -9,7 +9,7 @@ module.exports = {
       .skip(page * count);
   },
 
-  createAnswer: async (data) => {
+  create: async (data) => {
     const photos = data.hasOwnProperty('photos')
       ? data.photos.map((photo, i) => {
           return { id: i + 1, url: photo };
