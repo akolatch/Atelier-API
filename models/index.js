@@ -1,4 +1,3 @@
-const { model } = require('mongoose');
-const { Question, Answer } = require('../db/NoSQLSchema.js');
-
-const 
+exports.updates = require('./updates');
+exports.questions = require('./questions');
+exports.answers = require('./answers');
