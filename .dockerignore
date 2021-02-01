@@ -1,0 +1,4 @@
+csv/
+etl/
+node_modules/
+.env

@@ -1,4 +1,4 @@
-const { Question } = require('../db/index.js');
+const { Question } = require('../db');
 
 module.exports = {
   find: async ({ product_id, page = 0, count = 5 }) => {

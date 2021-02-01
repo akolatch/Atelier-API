@@ -2,9 +2,9 @@
 // ETL terminal commands/instructions
 
 1) To insert the CSVs into mongo in the root directory run:
-  mongoimport --type csv -d QnA -c questions --headerline --drop csv/questions.csv
-  mongoimport --type csv -d QnA -c transformAnswers --headerline --drop csv/answers.csv
-  mongoimport --type csv -d QnA -c transformPhotos --headerline --drop csv/answers_photos.csv
+  mongoimport --type csv -d QandA -c questions --headerline --drop csv/questions.csv
+  mongoimport --type csv -d QandA -c transformAnswers --headerline --drop csv/answers.csv
+  mongoimport --type csv -d QandA -c transformPhotos --headerline --drop csv/answers_photos.csv
 
 2) open the mongo shell and run:
   use QnA

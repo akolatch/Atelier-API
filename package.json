@@ -4,8 +4,8 @@
   "description": "restful API for the question and answers service of the Atelier API",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "dev-start": "nodemon server/index.js"
+    "start": "node app/server/index.js",
+    "dev-start": "nodemon app/server/index.js"
   },
   "repository": {
     "type": "git",
