@@ -2,10 +2,10 @@ FROM node:latest
 
 WORKDIR /app
 
-COPY package.json /src/package.json
+COPY package.json /app/package.json
 
 RUN npm install
 
-COPY . /src
+COPY . /app
 
-CMD ["node", "src/server/index.js"]
+CMD ["node", "app/server/index.js"]
