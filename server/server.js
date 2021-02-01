@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const routes = require('./router.js');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/qa', routes);
