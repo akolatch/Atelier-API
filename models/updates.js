@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId;
 const model = require('../db');
 
 module.exports = {
@@ -7,7 +5,7 @@ module.exports = {
     try {
       await model[collection].findOneAndUpdate(id, { $inc: update });
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return err;
     }
   },
@@ -16,7 +14,7 @@ module.exports = {
     try {
       await model[collection].findOneAndUpdate(id, { reported: 1 });
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return err;
     }
   },

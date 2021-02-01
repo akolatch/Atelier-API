@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/QnA');
+mongoose.connect(process.env.MONGO_URL);
 
 const questionsSchema = new mongoose.Schema({
   product_id: { type: Number, index: true },

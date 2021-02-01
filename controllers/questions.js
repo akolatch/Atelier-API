@@ -13,6 +13,7 @@ module.exports = {
       : 5;
     try {
       const questionData = await questions.find(queryParams);
+
       res.status(200).json(questionData);
     } catch (err) {
       console.error(err);
