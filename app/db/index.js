@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URL);
+
+mongoose.connect('mongodb://mongo:27017/QandA', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 
 const questionsSchema = new mongoose.Schema({
   product_id: { type: Number, index: true },

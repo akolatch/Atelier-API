@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  web:
+    build: .
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - '27018:27017'
+    volumes:
+      - mongoQA:/data/qa
+      - mongoQA_config:/data/configqa
+volumes:
+  mongoQA:
+  mongoQA_config:

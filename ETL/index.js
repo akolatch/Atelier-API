@@ -74,3 +74,6 @@ BEFORE DOING THIS NEXT STEP CONFIRM EVERYTHING HAS WORKED CORRECTLY
 // drop transform collections that will not be use
 db.transformAnswers.drop();
 db.transformPhotos.drop();
+
+// mongodump --db QandA
+// mongorestore --db QandA ./dump/QandA --port=27018

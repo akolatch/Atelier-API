@@ -2,3 +2,6 @@ csv/
 etl/
 node_modules/
 .env
+.pem
+*.env
+*.pem
