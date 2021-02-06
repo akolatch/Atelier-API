@@ -3,7 +3,7 @@ const { Question } = require('../db');
 module.exports = {
   find: async ({ product_id, page = 0, count = 5 }) => {
     return await Question.aggregate()
-      .match({ product_id })
+      .match({ product_id, reported: 0 })
       .sort({ question_id: 1 })
       .limit(page * count + count)
       .skip(page * count)

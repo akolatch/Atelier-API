@@ -18,4 +18,13 @@ module.exports = {
       return err;
     }
   },
+
+  delete: async (collection, target) => {
+    try {
+      await model[collection].deleteMany(target);
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  },
 };

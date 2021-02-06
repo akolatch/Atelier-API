@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { questions, answers } = require('../controllers');
 // get question for a given product
-router.route('/questions').get(questions.find).post(questions.create);
+router.route('/questions').get(questions.find).post(questions.create).delete();
 
 // mark a given question helpful
 router.route('/questions/:question_id/helpful').put(questions.markHelpful);
@@ -13,7 +13,8 @@ router.route('/questions/:question_id/report').put(questions.report);
 router
   .route('/questions/:question_id/answers')
   .get(answers.find)
-  .post(answers.create);
+  .post(answers.create)
+  .delete(answers.delete);
 
 // mark a given answer helpful
 router.route('/answers/:answer_id/helpful').put(answers.markHelpful);

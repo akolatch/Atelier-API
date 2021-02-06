@@ -12,7 +12,12 @@ module.exports = {
       ? parseInt(queries.count)
       : 5;
     try {
-      const answerData = await answers.find(queryParams);
+      const answerData = {
+        question: req.params.question_id,
+        page: queryParams.page,
+        count: queryParams.count,
+      };
+      answerData.results = await answers.find(queryParams);
       res.status(200).json(answerData);
     } catch (err) {
       console.error(err);
@@ -48,6 +53,17 @@ module.exports = {
     const answer_id = parseInt(req.params.answer_id);
     try {
       await updates.report('Answer', { answer_id });
+      res.sendStatus(204);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
+  },
+  delete: async (req, res) => {
+    try {
+      await updates.delete('Answer', {
+        question_id: parseInt(req.params.question_id),
+      });
       res.sendStatus(204);
     } catch (err) {
       console.error(err);

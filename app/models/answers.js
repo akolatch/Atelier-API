@@ -1,9 +1,9 @@
 const { Answer } = require('../db');
 
 module.exports = {
-  find: async ({ question_id, page = 0, count = 5 }) => {
+  find: async ({ question_id, page, count }) => {
     return await Answer.aggregate()
-      .match({ question_id })
+      .match({ question_id, reported: 0 })
       .sort({ id: 1 })
       .limit(page * count + count)
       .skip(page * count);

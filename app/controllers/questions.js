@@ -12,8 +12,10 @@ module.exports = {
       ? parseInt(queries.count)
       : 5;
     try {
-      const questionData = await questions.find(queryParams);
-
+      const questionData = {
+        product_id: queries.product_id,
+      };
+      questionData.results = await questions.find(queryParams);
       res.status(200).json(questionData);
     } catch (err) {
       console.error(err);
@@ -47,6 +49,17 @@ module.exports = {
     const question_id = parseInt(req.params.question_id);
     try {
       await updates.report('Question', { question_id });
+      res.sendStatus(204);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
+  },
+  delete: async (req, res) => {
+    try {
+      await updates.delete('Question', {
+        question_id: parseInt(req.params.question_id),
+      });
       res.sendStatus(204);
     } catch (err) {
       console.error(err);
